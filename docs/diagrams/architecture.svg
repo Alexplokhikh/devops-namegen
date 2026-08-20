@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="850" viewBox="0 0 1600 850">
+<style>
+text{font-family:Arial,sans-serif;fill:#0f172a}
+.title{font-size:34px;font-weight:700}.box{fill:#fff;stroke:#64748b;stroke-width:2}.group{fill:none;stroke-width:3}
+.label{font-size:20px;font-weight:600}.small{font-size:16px}.arrow{stroke:#334155;stroke-width:3;fill:none;marker-end:url(#a)}
+</style>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker></defs>
+<rect width="1600" height="850" fill="#f8fafc"/>
+<text x="50" y="55" class="title">DevOps NameGen — AWS / EKS Architecture</text>
+<rect x="250" y="230" width="1280" height="390" rx="25" class="group" stroke="#16a34a"/><text x="275" y="260" class="small">AWS VPC</text>
+<rect x="610" y="285" width="700" height="285" rx="22" class="group" stroke="#2563eb"/><text x="635" y="315" class="small">Amazon EKS</text>
+
+<g><rect x="50" y="365" width="170" height="70" rx="14" class="box"/><text x="135" y="407" text-anchor="middle" class="label">Browser / User</text></g>
+<g><rect x="290" y="365" width="220" height="70" rx="14" class="box"/><text x="400" y="392" text-anchor="middle" class="label">AWS Network</text><text x="400" y="418" text-anchor="middle" class="label">Load Balancer</text></g>
+<g><rect x="580" y="365" width="200" height="70" rx="14" class="box"/><text x="680" y="407" text-anchor="middle" class="label">Kubernetes Service</text></g>
+<g><rect x="850" y="315" width="220" height="90" rx="14" class="box"/><text x="960" y="350" text-anchor="middle" class="label">NameGen Deployment</text><text x="960" y="378" text-anchor="middle" class="small">2 replicas</text></g>
+<g><rect x="850" y="470" width="220" height="90" rx="14" class="box"/><text x="960" y="507" text-anchor="middle" class="label">MongoDB StatefulSet</text><text x="960" y="535" text-anchor="middle" class="small">mongodb-0</text></g>
+<g><rect x="1130" y="470" width="190" height="90" rx="14" class="box"/><text x="1225" y="507" text-anchor="middle" class="label">5 GiB PVC</text><text x="1225" y="535" text-anchor="middle" class="small">EBS gp3</text></g>
+<g><rect x="1380" y="470" width="170" height="90" rx="14" class="box"/><text x="1465" y="507" text-anchor="middle" class="label">Amazon EBS</text><text x="1465" y="535" text-anchor="middle" class="small">gp3 volume</text></g>
+
+<g><rect x="290" y="100" width="220" height="70" rx="14" class="box"/><text x="400" y="142" text-anchor="middle" class="label">GitHub Actions</text></g>
+<g><rect x="580" y="100" width="200" height="70" rx="14" class="box"/><text x="680" y="130" text-anchor="middle" class="label">AWS IAM Role</text><text x="680" y="154" text-anchor="middle" class="small">OIDC</text></g>
+<g><rect x="850" y="100" width="220" height="70" rx="14" class="box"/><text x="960" y="142" text-anchor="middle" class="label">Amazon ECR</text></g>
+<g><rect x="1130" y="690" width="190" height="70" rx="14" class="box"/><text x="1225" y="732" text-anchor="middle" class="label">Prometheus</text></g>
+<g><rect x="1380" y="690" width="170" height="70" rx="14" class="box"/><text x="1465" y="732" text-anchor="middle" class="label">Grafana</text></g>
+
+<path d="M220 400 H290" class="arrow"/><path d="M510 400 H580" class="arrow"/><path d="M780 400 L850 360" class="arrow"/>
+<path d="M960 405 V470" class="arrow"/><path d="M1070 515 H1130" class="arrow"/><path d="M1320 515 H1380" class="arrow"/>
+<path d="M510 135 H580" class="arrow"/><path d="M510 135 H850" class="arrow"/><path d="M960 170 V315" class="arrow"/>
+<path d="M1320 725 H1380" class="arrow"/><path d="M960 560 L1180 690" class="arrow"/>
+
+<text x="235" y="385" class="small">HTTP</text><text x="520" y="385" class="small">80</text><text x="790" y="375" class="small">8080</text>
+<text x="535" y="120" class="small">OIDC</text><text x="665" y="85" class="small">build + push</text><text x="978" y="235" class="small">image pull</text>
+</svg>

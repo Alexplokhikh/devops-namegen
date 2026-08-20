@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="560" viewBox="0 0 1600 560">
+<style>
+text{font-family:Arial,sans-serif;fill:#0f172a}.title{font-size:34px;font-weight:700}.box{fill:#fff;stroke:#64748b;stroke-width:2}.label{font-size:19px;font-weight:600}.small{font-size:15px}.arrow{stroke:#334155;stroke-width:3;fill:none;marker-end:url(#a)}
+</style>
+<defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#334155"/></marker></defs>
+<rect width="1600" height="560" fill="#f8fafc"/><text x="50" y="55" class="title">DevOps NameGen — CI/CD Pipeline</text>
+
+<g><rect x="50" y="245" width="170" height="70" rx="14" class="box"/><text x="135" y="287" text-anchor="middle" class="label">git push main</text></g>
+<g><rect x="280" y="245" width="190" height="70" rx="14" class="box"/><text x="375" y="287" text-anchor="middle" class="label">GitHub Actions</text></g>
+<g><rect x="530" y="110" width="180" height="70" rx="14" class="box"/><text x="620" y="152" text-anchor="middle" class="label">OIDC / IAM</text></g>
+<g><rect x="530" y="245" width="180" height="70" rx="14" class="box"/><text x="620" y="287" text-anchor="middle" class="label">Docker Build</text></g>
+<g><rect x="770" y="235" width="190" height="90" rx="14" class="box"/><text x="865" y="270" text-anchor="middle" class="label">Amazon ECR</text><text x="865" y="298" text-anchor="middle" class="small">Git SHA tag</text></g>
+<g><rect x="1020" y="245" width="180" height="70" rx="14" class="box"/><text x="1110" y="287" text-anchor="middle" class="label">Update EKS</text></g>
+<g><rect x="1260" y="245" width="210" height="70" rx="14" class="box"/><text x="1365" y="287" text-anchor="middle" class="label">Rolling Deployment</text></g>
+
+<path d="M220 280 H280" class="arrow"/><path d="M470 280 H530" class="arrow"/><path d="M710 280 H770" class="arrow"/>
+<path d="M960 280 H1020" class="arrow"/><path d="M1200 280 H1260" class="arrow"/><path d="M375 245 L530 145" class="arrow"/>
+<path d="M710 145 L1110 245" class="arrow"/>
+
+<text x="520" y="210" class="small">build</text><text x="728" y="265" class="small">push</text><text x="978" y="265" class="small">image</text>
+<text x="1185" y="265" class="small">kubectl</text><text x="400" y="135" class="small">AssumeRole with OIDC</text>
+<text x="930" y="150" class="small">aws eks update-kubeconfig</text>
+</svg>
