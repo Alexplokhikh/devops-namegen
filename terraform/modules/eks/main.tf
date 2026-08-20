@@ -5,9 +5,11 @@ resource "aws_iam_role" "cluster" {
     Version = "2012-10-17"
     Statement = [{
       Effect = "Allow"
+
       Principal = {
         Service = "eks.amazonaws.com"
       }
+
       Action = [
         "sts:AssumeRole",
         "sts:TagSession"
@@ -27,7 +29,8 @@ locals {
 }
 
 resource "aws_iam_role_policy_attachment" "cluster" {
-  for_each   = local.cluster_policies
+  for_each = local.cluster_policies
+
   role       = aws_iam_role.cluster.name
   policy_arn = each.value
 }
@@ -39,9 +42,11 @@ resource "aws_iam_role" "node" {
     Version = "2012-10-17"
     Statement = [{
       Effect = "Allow"
+
       Principal = {
         Service = "ec2.amazonaws.com"
       }
+
       Action = "sts:AssumeRole"
     }]
   })
@@ -55,7 +60,8 @@ locals {
 }
 
 resource "aws_iam_role_policy_attachment" "node" {
-  for_each   = local.node_policies
+  for_each = local.node_policies
+
   role       = aws_iam_role.node.name
   policy_arn = each.value
 }
@@ -93,6 +99,12 @@ resource "aws_eks_cluster" "this" {
     subnet_ids              = var.subnet_ids
     endpoint_public_access  = true
     endpoint_private_access = true
+  }
+
+  lifecycle {
+    ignore_changes = [
+      bootstrap_self_managed_addons
+    ]
   }
 
   tags = {

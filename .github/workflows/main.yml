@@ -12,7 +12,7 @@ env:
   AWS_REGION: eu-central-1
   ECR_REPOSITORY: devops-namegen
   EKS_CLUSTER: devops-namegen-eks
-  AWS_ROLE_ARN: REPLACE_WITH_TERRAFORM_OUTPUT_ROLE_ARN
+  AWS_ROLE_ARN: arn:aws:iam::044014415398:role/devops-namegen-github-actions-role
 
 jobs:
   build-and-deploy:
