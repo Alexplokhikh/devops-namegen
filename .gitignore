@@ -3,6 +3,7 @@ node_modules/
 npm-debug.log*
 *.log
 
+# Test / coverage output
 coverage/
 .nyc_output/
 
@@ -11,35 +12,39 @@ coverage/
 .env.*
 !.env.example
 
-# Terraform
+# Terraform runtime/state
 .terraform/
 *.tfstate
 *.tfstate.*
+.terraform.tfstate.lock.info
 crash.log
 crash.*.log
 
-# Local Terraform variable values
-terraform.tfvars
+# Terraform variable values
+*.tfvars
 *.auto.tfvars
+!terraform.tfvars.example
 
-# Terraform plan files
+# Terraform plans / local output
 *.tfplan
 tfplan
+plan.txt
+terraform/plan.txt
 
-# Keep Terraform dependency lock file tracked
+# Keep dependency lock file
 !.terraform.lock.hcl
 
+# IDE / editor
 .idea/
 .vscode/
 *.swp
 *.swo
 
+# OS
 .DS_Store
 Thumbs.db
 Desktop.ini
 
+# Temporary files
 *.tmp
 *.temp
-
-plan.txt
-terraform/plan.txt

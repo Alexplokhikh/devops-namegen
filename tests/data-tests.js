@@ -1,45 +1,56 @@
-'use strict';
-//require('dotenv').config({ path: '../.env' })
-const { faker } = require('@faker-js/faker');
-const {
-    setPerson, getPersons, getPerson,
-} = require('../data/index');
-const {getConnection, getConnectionUrlSync} = require('../data/connection')
-const expect = require('chai').expect;
-const describe = require('mocha').describe;
-const it = require('mocha').it;
+"use strict";
 
+const { faker } = require("@faker-js/faker");
+const { setPerson, getPersons, getPerson } = require("../data/index");
 
+const { getConnection } = require("../data/connection");
+const expect = require("chai").expect;
 
+describe("Data Tests", function () {
+  this.timeout(15000);
 
-describe('Data Tests', () => {
-    before(async () => {
+  let connection;
 
+  before(async function () {
+    connection = await getConnection();
+  });
+
+  after(async function () {
+    if (connection) {
+      await connection.disconnect();
+    }
+  });
+
+  it("Can connect to DB", async function () {
+    expect(connection).to.be.an("object");
+  });
+
+  it("Can create Person in DB", async function () {
+    const firstName = faker.name.firstName();
+    const lastName = faker.name.lastName();
+
+    await setPerson({
+      firstName,
+      lastName,
     });
-    it('Can connect to DB', async () => {
-        const connection = await getConnection();
-        expect(connection).to.be.an('object');
-        connection.disconnect();
 
-    }).timeout(5000);
+    const persons = await getPersons();
 
-    it('Can create Person to DB', async () => {
-        const firstName = faker.name.firstName();
-        const lastName = faker.name.firstName();
+    expect(persons).to.be.an("array");
+    expect(persons.length).to.be.greaterThan(0);
 
-        await setPerson({firstName,lastName})
-            .catch(e => {
-                console.error(e)
-            });
-        const persons = await getPersons()
-        expect(persons).to.be.an('array');
-        const person = await getPerson(persons[0].id.toString())
-            .catch(e => {
-                console.error(e);
-            })
-        expect(person).to.be.an('object');
-        expect(person.id).to.eq(persons[0].id.toString());
+    const createdPerson = persons.find(
+      (person) =>
+        person.firstName === firstName && person.lastName === lastName,
+    );
 
-    }).timeout(5000);
+    expect(createdPerson).to.exist;
 
-})
+    const person = await getPerson(createdPerson.id.toString());
+
+    expect(person).to.be.an("object");
+    expect(person.id).to.eq(createdPerson.id.toString());
+    expect(person.firstName).to.eq(firstName);
+    expect(person.lastName).to.eq(lastName);
+  });
+});

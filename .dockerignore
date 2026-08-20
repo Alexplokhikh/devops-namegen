@@ -1,9 +1,16 @@
 node_modules
 npm-debug.log*
+*.log
+
 .git
 .github
+
 terraform
 k8s
 docs
+tests
+
 .env
+.env.*
+
 README.md

@@ -4,7 +4,8 @@
   "description": "A demonstration application for automatically generating names for storage in a database",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "start": "node server.js",
+    "test": "mocha tests/**/*.js"
   },
   "author": "Alexplokhikh <alexei96pl@gmail.com>",
   "license": "MIT",
