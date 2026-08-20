@@ -1,0 +1,9 @@
+node_modules
+npm-debug.log*
+.git
+.github
+terraform
+k8s
+docs
+.env
+README.md

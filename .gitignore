@@ -1,0 +1,42 @@
+# Node.js
+node_modules/
+npm-debug.log*
+*.log
+
+coverage/
+.nyc_output/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+crash.*.log
+
+# Local Terraform variable values
+terraform.tfvars
+*.auto.tfvars
+
+# Terraform plan files
+*.tfplan
+tfplan
+
+# Keep Terraform dependency lock file tracked
+!.terraform.lock.hcl
+
+.idea/
+.vscode/
+*.swp
+*.swo
+
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+*.tmp
+*.temp

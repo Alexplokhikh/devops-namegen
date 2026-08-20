@@ -1,0 +1,5 @@
+aws_region = "eu-central-1"
+
+github_username      = "YOUR_GITHUB_USERNAME"
+github_owner_id      = "YOUR_GITHUB_USER_ID"
+github_repository_id = "YOUR_GITHUB_REPOSITORY_ID"
